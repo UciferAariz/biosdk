@@ -1,0 +1,31 @@
+
+services:
+  # The API Backend (Docker)
+  - type: web
+    name: bioauth-api
+    env: docker
+    dockerContext: .
+    dockerfilePath: ./api/Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # The Streamlit Dashboard (Docker)
+  # Optional: You can deploy this on Streamlit Cloud instead, 
+  # but Render can host it too if you want everything in one place.
+  - type: web
+    name: bioauth-dashboard
+    env: docker
+    dockerContext: .
+    dockerfilePath: ./dashboard/Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: API_URL
+        fromService:
+          type: web
+          name: bioauth-api
+          property: host
