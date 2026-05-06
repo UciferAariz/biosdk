@@ -1,3 +1,10 @@
+Due to Funding Issues this project has been abandoned.
+If you have funds then mail us at aarizasdaque@gmail.com , we will retry building it. 
+
+Fund Required - - 2500$
+
+
+
 # BioAuth System
 
 ## Overview
